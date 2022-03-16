@@ -43,7 +43,7 @@ zsh-syntax-highlighting
 
 iterm color theme: `curl -O https://raw.githubusercontent.com/MartinSeeler/iterm2-material-design/master/material-design-colors.itermcolors`
 
-Import theme in iterm2 Profiles > Colors > Presets...
+Import theme in iterm2: *Profiles > Colors > Presets...*
 
 ohmyzsh theme: `git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k`
 
@@ -51,4 +51,4 @@ Change zsh theme: `ZSH_THEME="powerlevel10k/powerlevel10k"`
 
 ###
 
-Change the key mapping preset to `Natural Text Editing` in order to skip words or go to start/end of line: Profiles > Keys > Key Mappings > Presets... 
+Change the key mapping preset to `Natural Text Editing` in order to skip words or go to start/end of line: *Profiles > Keys > Key Mappings > Presets...*
