@@ -6,15 +6,21 @@
 
 ### Formulae
 
-openjdk@8	zsh	libpq
+autossh	krb5 nvm	python@3.8 zsh
+ca-certificates	libpng	openjdk@8	readline
+freetype libpq	openssl@1.1	sqlite
+gdbm mpdecimal	openssl@3 tcl-tk
+jenv ncurses	pcre xz
 
 ### Casks
 
-1password	iterm2 microsoft-outlook
-atom jetbrains-toolbox	microsoft-powerpoint
-carbon-copy-cloner krisp	microsoft-teams
-docker microsoft-auto-update microsoft-word
-google-chrome microsoft-excel spotify
+1password		google-chrome		microsoft-outlook
+adoptopenjdk11		insomnia		microsoft-powerpoint
+adoptopenjdk14		iterm2			microsoft-teams
+atom			jetbrains-toolbox	microsoft-word
+carbon-copy-cloner	krisp			miro
+docker			microsoft-auto-update	spotify
+firefox			microsoft-excel
 
 ## iterm2 & zsh
 
