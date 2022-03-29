@@ -2,25 +2,17 @@
 
 ## Homebrew
 
+Install homebrew:
+
 `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"`
 
-### Formulae
+Create bundle:
 
-autossh	krb5 nvm	python@3.8 zsh
-ca-certificates	libpng	openjdk@8	readline
-freetype libpq	openssl@1.1	sqlite
-gdbm mpdecimal	openssl@3 tcl-tk
-jenv ncurses	pcre xz
+`brew bundle dump`
 
-### Casks
+Install bundle:
 
-1password		google-chrome		microsoft-outlook
-adoptopenjdk11		insomnia		microsoft-powerpoint
-adoptopenjdk14		iterm2			microsoft-teams
-atom			jetbrains-toolbox	microsoft-word
-carbon-copy-cloner	krisp			miro
-docker			microsoft-auto-update	spotify
-firefox			microsoft-excel
+`brew bundle install`
 
 ## iterm2 & zsh
 
