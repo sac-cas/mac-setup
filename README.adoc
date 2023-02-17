@@ -1,0 +1,179 @@
+= Mac Setup
+
+A few tools/configs to setup MacOS for Devs.
+
+:toc:
+
+== Homebrew
+
+Install homebrew:
+[source, console]
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+Create bundle:
+[source, console]
+brew bundle dump
+
+Install bundle:
+[source, console]
+brew bundle install
+
+== Dotfiles
+
+Install dotfiles: TBD
+
+== vim
+
+Install `vim-plug`:
+[source,console]
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+
+NOTE: Install plugins by `:PlugInstall`. See more on https://github.com/junegunn/vim-plug 
+
+== iterm2 & zsh
+
+Install iterm2 via homebrew: 
+[source, console]
+brew install --cask iterm2
+
+=== Install ohmyzsh
+
+[source,console]
+$ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
+=== Plugins
+
+==== zsh-autosuggestions
+[source,console]
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+
+==== zsh-syntax-highlighting
+[source,console]
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+
+List of Plugins:
+[listing]
+git
+brew
+docker
+history
+macos
+zsh-autosuggestions
+zsh-syntax-highlighting
+
+=== Styling
+
+==== iterm color theme
+Download theme:
+[source, console]
+curl -O https://raw.githubusercontent.com/MartinSeeler/iterm2-material-design/master/material-design-colors.itermcolors
+
+Import theme in iterm2: *Profiles > Colors > Presets...*
+
+==== ohmyzsh theme
+Clone theme:
+[source, console]
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+
+Change zsh theme in `.zshrc` by adding/replacing: `ZSH_THEME="powerlevel10k/powerlevel10k"`
+
+=== Additional iterm2 settings
+
+==== Skipping words, go to start/end
+Change the key mapping preset to `Natural Text Editing` in order to skip words or go to start/end of line: *Profiles > Keys > Key Mappings > Presets...*
+
+=== Additional config .zshrc
+
+[source]
+----
+# 1password ssh agent
+export SSH_AUTH_SOCK=~/.1password/agent.sock
+
+# jenv
+export PATH="$HOME/.jenv/bin:$PATH"
+eval "$(jenv init -)"
+
+# nvm
+export NVM_DIR=~/.nvm
+source $(brew --prefix nvm)/nvm.sh
+
+# gem
+export GEM_HOME=$HOME/.gem
+export PATH=$GEM_HOME/bin:$PATH
+
+export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
+
+export LANG=en_US.UTF-8
+export LANGUAGE=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+
+export PATH="/usr/local/opt/libpq/bin:$PATH"
+
+# pnpm
+export PNPM_HOME="/Users/scas/Library/pnpm"
+export PATH="$PNPM_HOME:$PATH"
+----
+
+== Java & jenv
+
+#jenv# helps managing multiple Java versions. 
+
+=== Shell config
+
+Add path to your `.zshrc`:
+[source]
+export PATH="$HOME/.jenv/bin:$PATH"
+eval "$(jenv init -)"
+
+=== (optional) support for mvn a.o.
+
+ensure that JAVA_HOME is correct:
+[source, console]
+$ jenv enable-plugin export 
+
+make Maven aware of the Java version in use (and switch when your project does):
+[source, console]
+$ jenv enable-plugin maven
+
+=== Adding new Java versions
+
+Install new Java version via brew (e.g. `brew install adoptopenjdk11`).
+
+List installed versions:
+
+[source,console]
+$ /usr/libexec/java_home -V
+
+
+Add new version: 
+
+[source,console]
+$ jenv add <jdk_path>
+
+== Mac Settings
+
+=== Finder
+* Default folder 
+* Airdrop
+
+=== Docks
+* Delay
+* Animation
+* Spacer
+
+=== Keyboard
+* disable spelling correction
+
+=== Siri
+* Voice Feedback 
+* Type to siri
+
+=== Desktop
+* Hot corners
+
+== Useful apps
+
+* Rocket typist
+* Gestimer
+* Menuwhere
