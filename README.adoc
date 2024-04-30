@@ -20,6 +20,13 @@ Install bundle:
 [source, console]
 brew bundle install
 
+== Useful tools
+
+* `fd`: https://github.com/sharkdp/fd[faster alternative to finder] (`brew install fd`)
+* `fzf`: https://github.com/junegunn/fzf[Fuzzy finder] (`brew install fzf`)
+* `glab`: https://gitlab.com/gitlab-org/cli/-/tree/main[Gitlab CLI] (`brew install glab`)
+* `rg`: https://github.com/BurntSushi/ripgrep[ripgrep] (`brew install ripgrep`)
+
 == Dotfiles
 
 Install dotfiles: TBD
@@ -174,8 +181,61 @@ $ jenv add <jdk_path>
 === Desktop
 * Hot corners
 
-== Useful apps
+== Useful MacOS apps
 
 * Rocket typist
 * Gestimer
 * Menuwhere
+
+== Idea
+
+=== Starting idea from command line
+
+Follow the instructions on https://www.jetbrains.com/help/idea/working-with-the-ide-features-from-command-line.html#toolbox to configure the command line.
+
+If you want to open a specific project from the command line in a cool way, you can use the following command:
+
+[source,console]
+find ~/Workspace -maxdepth 3 -type d -name .idea | sed 's|/.idea$||' | fzf | xargs idea
+
+NOTE: Fuzzy finder is required and you have to replace the workspace directory (~/Workspace) with your root directory. 
+
+WHen you use an alias or create a script in a bin folder it will look like this:
+
+image::images/oidea.gif[]
+
+== Gitlab
+
+=== Creating merge requests (the cool way)
+
+The following script will extract the jira story out of the branch name and create a merge request with a title and description. The target branch is selected via `fzf` by listing all origin branches. After creating the merge request it will be opened in the browser for convenience.
+
+NOTE: You need to have `glab` and `fzf` installed.
+
+[source,console]
+[source]
+----
+#!/bin/bash
+
+pwd=$(pwd)
+
+current_branch=$(cd $pwd && git rev-parse --abbrev-ref HEAD)
+current_jira_story=$(echo $current_branch | grep -Eo 'JIRA-[0-9]+')
+
+read -p "Please enter jira task [current: $current_jira_story]:" jira_story
+jira_story="${jira_story:-$current_jira_story}"
+
+current_mr_title=$(git log -1 --pretty=%B)
+read -p "Please enter title [current: $current_mr_title]:" mr_title
+mr_title="[$jira_story] - ${mr_title:-$current_mr_title}"
+
+target_branch=$((cd $pwd && git branch -r) | fzf | xargs | sed 's/^origin\///')
+
+glab mr create --title "$mr_title" --description "[$jira_story]" --target-branch "$target_branch" --remove-source-branch --draft --web
+----
+
+Save this script in a bin folder and make it executable or integrate it as a function in your `.zshrc` or `.bashrc`. In my case I have a `~/bin` folder in my path and stored the script in `glmr`:
+
+image::images/glmr.gif[]
+
+
