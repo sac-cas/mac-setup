@@ -1,8 +1,11 @@
 = Mac Setup
 
+:toc:
+:toc-placement!:
+
 A few tools/configs to setup MacOS for Devs.
 
-:toc:
+toc::[]
 
 == Homebrew
 
