@@ -1,0 +1,28 @@
+== Gitlab
+
+=== Creating merge requests (the cool way)
+
+The following script will extract the jira story out of the branch name and create a merge request with a title and description. The target branch is selected via `fzf` by listing all origin branches. After creating the merge request it will be opened in the browser for convenience.
+
+NOTE: You need to have `glab` and `fzf` installed.
+
+.Create merge request
+[source,console]
+====
+include::bin/glmr[]
+====
+
+Save this script in a bin folder and make it executable or integrate it as a function in your `.zshrc` or `.bashrc`. In my case I have a `~/bin` folder in my path and stored the script in `glmr`:
+
+image::images/glmr.gif[]
+
+=== Creating merge request (develop -> main)
+
+The following script will create a merge request from `develop` to `main` with a title and description:
+
+.Create merge request
+[source,console]
+====
+include::bin/glmrm[]
+====
+

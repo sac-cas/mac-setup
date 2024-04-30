@@ -1,0 +1,88 @@
+== iterm2
+
+=== Installation
+
+Install iterm2 via homebrew: 
+[source, console]
+brew install --cask iterm2
+
+=== Color theme
+Download theme:
+[source, console]
+curl -O https://raw.githubusercontent.com/MartinSeeler/iterm2-material-design/master/material-design-colors.itermcolors
+
+Import theme in iterm2: *Profiles > Colors > Presets...*
+
+=== Additional settings
+
+==== Skipping words, go to start/end
+Change the key mapping preset to `Natural Text Editing` in order to skip words or go to start/end of line: *Profiles > Keys > Key Mappings > Presets...*
+
+== Java & jenv
+
+#jenv# helps managing multiple Java versions. 
+
+=== Shell config
+
+Add path to your `.zshrc`:
+[source]
+export PATH="$HOME/.jenv/bin:$PATH"
+eval "$(jenv init -)"
+
+=== (optional) support for mvn a.o.
+
+ensure that JAVA_HOME is correct:
+[source, console]
+$ jenv enable-plugin export 
+
+make Maven aware of the Java version in use (and switch when your project does):
+[source, console]
+$ jenv enable-plugin maven
+
+=== Adding new Java versions
+
+Install new Java version via brew (e.g. `brew install adoptopenjdk11`).
+
+List installed versions:
+
+[source,console]
+$ /usr/libexec/java_home -V
+
+
+Add new version: 
+
+[source,console]
+$ jenv add <jdk_path>
+
+== Mac Settings
+
+=== Finder
+* Default folder 
+* Airdrop
+
+=== Docks
+* Delay
+* Animation
+* Spacer
+
+=== Keyboard
+* disable spelling correction
+
+=== Siri
+* Voice Feedback 
+* Type to siri
+
+=== Desktop
+* Hot corners
+
+== Useful MacOS apps
+
+* Rocket typist
+* Gestimer
+* Menuwhere
+
+
+include::aws.adoc[]
+include::gitlab.adoc[]
+include::idea.adoc[]
+

@@ -1,0 +1,8 @@
+#!/bin/bash
+
+glab mr create \
+--title "Merge develop into main" \
+--description "chore: merge develop into main" \
+--source-branch "develop" \
+--target-branch "main" \
+--web

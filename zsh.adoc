@@ -1,0 +1,70 @@
+== zsh
+
+=== ohmyzsh
+
+==== Installation
+
+[source,console]
+$ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
+==== Plugins
+
+===== zsh-autosuggestions
+[source,console]
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+
+===== zsh-syntax-highlighting
+[source,console]
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+
+List of Plugins:
+[listing]
+git
+brew
+docker
+history
+macos
+zsh-autosuggestions
+zsh-syntax-highlighting
+
+==== Styling / Theme
+
+Clone theme:
+
+[source, console]
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+
+Change zsh theme in `.zshrc` by adding/replacing: `ZSH_THEME="powerlevel10k/powerlevel10k"`
+
+
+=== Additional config
+
+[source,sh]
+----
+# 1password ssh agent
+export SSH_AUTH_SOCK=~/.1password/agent.sock
+
+# jenv
+export PATH="$HOME/.jenv/bin:$PATH"
+eval "$(jenv init -)"
+
+# nvm
+export NVM_DIR=~/.nvm
+source $(brew --prefix nvm)/nvm.sh
+
+# gem
+export GEM_HOME=$HOME/.gem
+export PATH=$GEM_HOME/bin:$PATH
+
+export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
+
+export LANG=en_US.UTF-8
+export LANGUAGE=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+
+export PATH="/usr/local/opt/libpq/bin:$PATH"
+
+# pnpm
+export PNPM_HOME="/Users/scas/Library/pnpm"
+export PATH="$PNPM_HOME:$PATH"
+----

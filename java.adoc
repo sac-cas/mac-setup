@@ -1,0 +1,68 @@
+== Java (jenv)
+
+`jenv` helps managing multiple Java versions. 
+
+=== Shell config
+
+Add path to your `.zshrc`:
+[source]
+export PATH="$HOME/.jenv/bin:$PATH"
+eval "$(jenv init -)"
+
+=== (optional) support for mvn a.o.
+
+ensure that JAVA_HOME is correct:
+[source, console]
+$ jenv enable-plugin export 
+
+make Maven aware of the Java version in use (and switch when your project does):
+[source, console]
+$ jenv enable-plugin maven
+
+=== Adding new Java versions
+
+Install new Java version via brew (e.g. `brew install adoptopenjdk11`).
+
+List installed versions:
+
+[source,console]
+$ /usr/libexec/java_home -V
+
+
+Add new version: 
+
+[source,console]
+$ jenv add <jdk_path>
+
+== Mac Settings
+
+=== Finder
+* Default folder 
+* Airdrop
+
+=== Docks
+* Delay
+* Animation
+* Spacer
+
+=== Keyboard
+* disable spelling correction
+
+=== Siri
+* Voice Feedback 
+* Type to siri
+
+=== Desktop
+* Hot corners
+
+== Useful MacOS apps
+
+* Rocket typist
+* Gestimer
+* Menuwhere
+
+
+include::aws.adoc[]
+include::gitlab.adoc[]
+include::idea.adoc[]
+

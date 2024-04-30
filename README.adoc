@@ -2,240 +2,31 @@
 :toc:
 :toc-placement!:
 
-A few tools/configs to setup MacOS for Devs.
+This is an overview of a few tools, configs and scripts to master development on your Mac.
 
 toc::[]
 
-== Homebrew
+include::homebrew.adoc[]
 
-Install homebrew:
-[source, console]
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+include::tools.adoc[]
 
-Create bundle:
-[source, console]
-brew bundle dump
+include::dotfiles.adoc[]
 
-Install bundle:
-[source, console]
-brew bundle install
+include::java.adoc[]
 
-== Useful tools
+include::vim.adoc[]
 
-* `fd`: https://github.com/sharkdp/fd[faster alternative to finder] (`brew install fd`)
-* `fzf`: https://github.com/junegunn/fzf[Fuzzy finder] (`brew install fzf`)
-* `glab`: https://gitlab.com/gitlab-org/cli/-/tree/main[Gitlab CLI] (`brew install glab`)
-* `rg`: https://github.com/BurntSushi/ripgrep[ripgrep] (`brew install ripgrep`)
+include::iterm.adoc[]
 
-== Dotfiles
+include::zsh.adoc[]
 
-Install dotfiles: TBD
+include::mac-settings.adoc[]
 
-== vim
+include::aws.adoc[]
 
-Install `vim-plug`:
-[source,console]
-sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
-       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+include::gitlab.adoc[]
 
-NOTE: Install plugins by `:PlugInstall`. See more on https://github.com/junegunn/vim-plug 
+include::idea.adoc[]
 
-== iterm2 & zsh
-
-Install iterm2 via homebrew: 
-[source, console]
-brew install --cask iterm2
-
-=== Install ohmyzsh
-
-[source,console]
-$ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-
-=== Plugins
-
-==== zsh-autosuggestions
-[source,console]
-git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-
-==== zsh-syntax-highlighting
-[source,console]
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-
-List of Plugins:
-[listing]
-git
-brew
-docker
-history
-macos
-zsh-autosuggestions
-zsh-syntax-highlighting
-
-=== Styling
-
-==== iterm color theme
-Download theme:
-[source, console]
-curl -O https://raw.githubusercontent.com/MartinSeeler/iterm2-material-design/master/material-design-colors.itermcolors
-
-Import theme in iterm2: *Profiles > Colors > Presets...*
-
-==== ohmyzsh theme
-Clone theme:
-[source, console]
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
-
-Change zsh theme in `.zshrc` by adding/replacing: `ZSH_THEME="powerlevel10k/powerlevel10k"`
-
-=== Additional iterm2 settings
-
-==== Skipping words, go to start/end
-Change the key mapping preset to `Natural Text Editing` in order to skip words or go to start/end of line: *Profiles > Keys > Key Mappings > Presets...*
-
-=== Additional config .zshrc
-
-[source]
-----
-# 1password ssh agent
-export SSH_AUTH_SOCK=~/.1password/agent.sock
-
-# jenv
-export PATH="$HOME/.jenv/bin:$PATH"
-eval "$(jenv init -)"
-
-# nvm
-export NVM_DIR=~/.nvm
-source $(brew --prefix nvm)/nvm.sh
-
-# gem
-export GEM_HOME=$HOME/.gem
-export PATH=$GEM_HOME/bin:$PATH
-
-export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
-
-export LANG=en_US.UTF-8
-export LANGUAGE=en_US.UTF-8
-export LC_ALL=en_US.UTF-8
-
-export PATH="/usr/local/opt/libpq/bin:$PATH"
-
-# pnpm
-export PNPM_HOME="/Users/scas/Library/pnpm"
-export PATH="$PNPM_HOME:$PATH"
-----
-
-== Java & jenv
-
-#jenv# helps managing multiple Java versions. 
-
-=== Shell config
-
-Add path to your `.zshrc`:
-[source]
-export PATH="$HOME/.jenv/bin:$PATH"
-eval "$(jenv init -)"
-
-=== (optional) support for mvn a.o.
-
-ensure that JAVA_HOME is correct:
-[source, console]
-$ jenv enable-plugin export 
-
-make Maven aware of the Java version in use (and switch when your project does):
-[source, console]
-$ jenv enable-plugin maven
-
-=== Adding new Java versions
-
-Install new Java version via brew (e.g. `brew install adoptopenjdk11`).
-
-List installed versions:
-
-[source,console]
-$ /usr/libexec/java_home -V
-
-
-Add new version: 
-
-[source,console]
-$ jenv add <jdk_path>
-
-== Mac Settings
-
-=== Finder
-* Default folder 
-* Airdrop
-
-=== Docks
-* Delay
-* Animation
-* Spacer
-
-=== Keyboard
-* disable spelling correction
-
-=== Siri
-* Voice Feedback 
-* Type to siri
-
-=== Desktop
-* Hot corners
-
-== Useful MacOS apps
-
-* Rocket typist
-* Gestimer
-* Menuwhere
-
-== Idea
-
-=== Starting idea from command line
-
-Follow the instructions on https://www.jetbrains.com/help/idea/working-with-the-ide-features-from-command-line.html#toolbox to configure the command line.
-
-If you want to open a specific project from the command line in a cool way, you can use the following command:
-
-[source,console]
-find ~/Workspace -maxdepth 3 -type d -name .idea | sed 's|/.idea$||' | fzf | xargs idea
-
-NOTE: Fuzzy finder is required and you have to replace the workspace directory (~/Workspace) with your root directory. 
-
-WHen you use an alias or create a script in a bin folder it will look like this:
-
-image::images/oidea.gif[]
-
-== Gitlab
-
-=== Creating merge requests (the cool way)
-
-The following script will extract the jira story out of the branch name and create a merge request with a title and description. The target branch is selected via `fzf` by listing all origin branches. After creating the merge request it will be opened in the browser for convenience.
-
-NOTE: You need to have `glab` and `fzf` installed.
-
-[source,console]
-[source]
-----
-#!/bin/bash
-
-pwd=$(pwd)
-
-current_branch=$(cd $pwd && git rev-parse --abbrev-ref HEAD)
-current_jira_story=$(echo $current_branch | grep -Eo 'JIRA-[0-9]+')
-
-read -p "Please enter jira task [current: $current_jira_story]:" jira_story
-jira_story="${jira_story:-$current_jira_story}"
-
-current_mr_title=$(git log -1 --pretty=%B)
-read -p "Please enter title [current: $current_mr_title]:" mr_title
-mr_title="[$jira_story] - ${mr_title:-$current_mr_title}"
-
-target_branch=$((cd $pwd && git branch -r) | fzf | xargs | sed 's/^origin\///')
-
-glab mr create --title "$mr_title" --description "[$jira_story]" --target-branch "$target_branch" --remove-source-branch --draft --web
-----
-
-Save this script in a bin folder and make it executable or integrate it as a function in your `.zshrc` or `.bashrc`. In my case I have a `~/bin` folder in my path and stored the script in `glmr`:
-
-image::images/glmr.gif[]
 
 

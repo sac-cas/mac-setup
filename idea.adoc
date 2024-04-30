@@ -1,0 +1,18 @@
+== Idea
+
+=== Starting idea from command line
+
+Follow the instructions on https://www.jetbrains.com/help/idea/working-with-the-ide-features-from-command-line.html#toolbox to configure the command line.
+
+If you want to open a specific project from the command line in a cool way, you can use the following command:
+
+[source,console]
+====
+include::bin/oidea[]
+====
+
+NOTE: Fuzzy finder is required and you have to replace the workspace directory (~/Workspace) with your root directory. 
+
+WHen you use an alias or create a script in a bin folder it will look like this:
+
+image::images/oidea.gif[]

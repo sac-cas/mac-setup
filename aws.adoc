@@ -1,0 +1,23 @@
+== AWS
+
+=== Enabling autocompletion for AWS CLI
+
+As I am often using autocompletion, here is how to enable it for the AWS CLI:
+
+[source,sh]
+----
+autoload -Uz compinit && compinit
+autoload bashcompinit && bashcompinit
+complete -C aws_completer aws
+----
+
+=== Switching between AWS profiles
+
+If you are using multiple AWS profiles for different AWS accounts, you can switch between them by setting the `AWS_PROFILE` and temporary credentials environment variable.
+Therefor, you can use the following script:
+
+.awsp script
+[%collapsible,source,shell]
+====
+include::bin/awsp[]
+====

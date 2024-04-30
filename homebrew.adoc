@@ -1,0 +1,13 @@
+== Homebrew
+
+Install homebrew:
+[source, console]
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+Create bundle:
+[source, console]
+brew bundle dump
+
+Install bundle:
+[source, console]
+brew bundle install

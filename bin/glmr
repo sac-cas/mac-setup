@@ -1,0 +1,17 @@
+#!/bin/bash
+
+pwd=$(pwd)
+
+current_branch=$(cd "$pwd" && git rev-parse --abbrev-ref HEAD)
+current_jira_story=$(echo "$current_branch" | grep -Eo 'CAIPI-[0-9]+')
+
+read -p "Please enter jira task [current: $current_jira_story]:" jira_story
+jira_story="${jira_story:-$current_jira_story}"
+
+current_mr_title=$(git log -1 --pretty=%B)
+read -p "Please enter title [current: $current_mr_title]:" mr_title
+mr_title="[$jira_story] - ${mr_title:-$current_mr_title}"
+
+target_branch=$((cd "$pwd" && git branch -r) | fzf | xargs | sed 's/^origin\///')
+
+glab mr create --title "$mr_title" --description "[$jira_story]" --target-branch "$target_branch" --remove-source-branch --draft --web

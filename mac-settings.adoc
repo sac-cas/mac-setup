@@ -1,0 +1,22 @@
+== Mac Settings
+
+=== Finder
+* Default folder 
+* Airdrop
+
+=== Docks
+* Delay
+* Animation
+* Spacer
+
+=== Keyboard
+* disable spelling correction
+
+=== Siri
+* Voice Feedback 
+* Type to siri
+
+=== Desktop
+* Hot corners
+
+

@@ -1,0 +1,6 @@
+== Useful tools
+
+* `fd`: https://github.com/sharkdp/fd[faster alternative to finder] (`brew install fd`)
+* `fzf`: https://github.com/junegunn/fzf[Fuzzy finder] (`brew install fzf`)
+* `glab`: https://gitlab.com/gitlab-org/cli/-/tree/main[Gitlab CLI] (`brew install glab`)
+* `rg`: https://github.com/BurntSushi/ripgrep[ripgrep] (`brew install ripgrep`)
