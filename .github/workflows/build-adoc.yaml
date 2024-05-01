@@ -1,5 +1,8 @@
 name: build adoc
 
+permissions:
+  contents: write
+
 on:
   push:
     branches:
@@ -14,9 +17,9 @@ jobs:
       - name: Get build container
         uses: tonynv/asciidoctor-action@master
         with:
-          program: "asciidoctor -D . --backend=html5 -o index.html README.adoc && echo 'dev.castells.de' > CNAME"
+          program: "asciidoctor -D public --backend=html5 -o index.html README.adoc && echo 'dev.castells.de' > public/CNAME"
       - name: Deploy docs to ghpages
         uses: peaceiris/actions-gh-pages@v4
         with:
-          deploy_key: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./public
