@@ -492,11 +492,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_additional_settings">Additional settings</a></li>
 </ul>
 </li>
-<li><a href="#_java_jenv_2">Java &amp; jenv</a>
+<li><a href="#_zsh">zsh</a>
 <ul class="sectlevel2">
-<li><a href="#_shell_config_2">Shell config</a></li>
-<li><a href="#_optional_support_for_mvn_a_o_2">(optional) support for mvn a.o.</a></li>
-<li><a href="#_adding_new_java_versions_2">Adding new Java versions</a></li>
+<li><a href="#_ohmyzsh">ohmyzsh</a></li>
+<li><a href="#_additional_config">Additional config</a></li>
 </ul>
 </li>
 <li><a href="#_mac_settings_2">Mac Settings</a>
@@ -508,7 +507,6 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_desktop_2">Desktop</a></li>
 </ul>
 </li>
-<li><a href="#_useful_macos_apps_2">Useful MacOS apps</a></li>
 <li><a href="#_aws_2">AWS</a>
 <ul class="sectlevel2">
 <li><a href="#_enabling_autocompletion_for_aws_cli_2">Enabling autocompletion for AWS CLI</a></li>
@@ -524,38 +522,6 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_idea_2">Idea</a>
 <ul class="sectlevel2">
 <li><a href="#_starting_idea_from_command_line_2">Starting idea from command line</a></li>
-</ul>
-</li>
-<li><a href="#_zsh">zsh</a>
-<ul class="sectlevel2">
-<li><a href="#_ohmyzsh">ohmyzsh</a></li>
-<li><a href="#_additional_config">Additional config</a></li>
-</ul>
-</li>
-<li><a href="#_mac_settings_3">Mac Settings</a>
-<ul class="sectlevel2">
-<li><a href="#_finder_3">Finder</a></li>
-<li><a href="#_docks_3">Docks</a></li>
-<li><a href="#_keyboard_3">Keyboard</a></li>
-<li><a href="#_siri_3">Siri</a></li>
-<li><a href="#_desktop_3">Desktop</a></li>
-</ul>
-</li>
-<li><a href="#_aws_3">AWS</a>
-<ul class="sectlevel2">
-<li><a href="#_enabling_autocompletion_for_aws_cli_3">Enabling autocompletion for AWS CLI</a></li>
-<li><a href="#_switching_between_aws_profiles_3">Switching between AWS profiles</a></li>
-</ul>
-</li>
-<li><a href="#_gitlab_3">Gitlab</a>
-<ul class="sectlevel2">
-<li><a href="#_creating_merge_requests_the_cool_way_3">Creating merge requests (the cool way)</a></li>
-<li><a href="#_creating_merge_request_develop_main_3">Creating merge request (develop &#8594; main)</a></li>
-</ul>
-</li>
-<li><a href="#_idea_3">Idea</a>
-<ul class="sectlevel2">
-<li><a href="#_starting_idea_from_command_line_3">Starting idea from command line</a></li>
 </ul>
 </li>
 </ul>
@@ -1054,61 +1020,96 @@ Install plugins by <code>:PlugInstall</code>. See more on <a href="https://githu
 </div>
 </div>
 <div class="sect1">
-<h2 id="_java_jenv_2">Java &amp; jenv</h2>
+<h2 id="_zsh">zsh</h2>
 <div class="sectionbody">
+<div class="sect2">
+<h3 id="_ohmyzsh">ohmyzsh</h3>
+<div class="sect3">
+<h4 id="_installation_2">Installation</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-console" data-lang="console">$ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_plugins">Plugins</h4>
+<div class="sect4">
+<h5 id="_zsh_autosuggestions">zsh-autosuggestions</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-console" data-lang="console">git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_zsh_syntax_highlighting">zsh-syntax-highlighting</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-console" data-lang="console">git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting</code></pre>
+</div>
+</div>
 <div class="paragraph">
-<p><mark>jenv</mark> helps managing multiple Java versions.</p>
+<p>List of Plugins:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>git
+brew
+docker
+history
+macos
+zsh-autosuggestions
+zsh-syntax-highlighting</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_styling_theme">Styling / Theme</h4>
+<div class="paragraph">
+<p>Clone theme:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-console" data-lang="console">git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Change zsh theme in <code>.zshrc</code> by adding/replacing: <code>ZSH_THEME="powerlevel10k/powerlevel10k"</code></p>
+</div>
+</div>
 </div>
 <div class="sect2">
-<h3 id="_shell_config_2">Shell config</h3>
-<div class="paragraph">
-<p>Add path to your <code>.zshrc</code>:</p>
-</div>
+<h3 id="_additional_config">Additional config</h3>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code>export PATH="$HOME/.jenv/bin:$PATH"
-eval "$(jenv init -)"</code></pre>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_optional_support_for_mvn_a_o_2">(optional) support for mvn a.o.</h3>
-<div class="paragraph">
-<p>ensure that JAVA_HOME is correct:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-console" data-lang="console">$ jenv enable-plugin export</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>make Maven aware of the Java version in use (and switch when your project does):</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-console" data-lang="console">$ jenv enable-plugin maven</code></pre>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_adding_new_java_versions_2">Adding new Java versions</h3>
-<div class="paragraph">
-<p>Install new Java version via brew (e.g. <code>brew install adoptopenjdk11</code>).</p>
-</div>
-<div class="paragraph">
-<p>List installed versions:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-console" data-lang="console">$ /usr/libexec/java_home -V</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Add new version:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-console" data-lang="console">$ jenv add &lt;jdk_path&gt;</code></pre>
+<pre class="highlight"><code class="language-sh" data-lang="sh"># 1password ssh agent
+export SSH_AUTH_SOCK=~/.1password/agent.sock
+
+# jenv
+export PATH="$HOME/.jenv/bin:$PATH"
+eval "$(jenv init -)"
+
+# nvm
+export NVM_DIR=~/.nvm
+source $(brew --prefix nvm)/nvm.sh
+
+# gem
+export GEM_HOME=$HOME/.gem
+export PATH=$GEM_HOME/bin:$PATH
+
+export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
+
+export LANG=en_US.UTF-8
+export LANGUAGE=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+
+export PATH="/usr/local/opt/libpq/bin:$PATH"
+
+# pnpm
+export PNPM_HOME="/Users/scas/Library/pnpm"
+export PATH="$PNPM_HOME:$PATH"</code></pre>
 </div>
 </div>
 </div>
@@ -1178,24 +1179,6 @@ eval "$(jenv init -)"</code></pre>
 </li>
 </ul>
 </div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_useful_macos_apps_2">Useful MacOS apps</h2>
-<div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p>Rocket typist</p>
-</li>
-<li>
-<p>Gestimer</p>
-</li>
-<li>
-<p>Menuwhere</p>
-</li>
-</ul>
 </div>
 </div>
 </div>
@@ -1421,395 +1404,10 @@ Fuzzy finder is required and you have to replace the workspace directory (~/Work
 </div>
 </div>
 </div>
-<div class="sect1">
-<h2 id="_zsh">zsh</h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="_ohmyzsh">ohmyzsh</h3>
-<div class="sect3">
-<h4 id="_installation_2">Installation</h4>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-console" data-lang="console">$ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"</code></pre>
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_plugins">Plugins</h4>
-<div class="sect4">
-<h5 id="_zsh_autosuggestions">zsh-autosuggestions</h5>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-console" data-lang="console">git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions</code></pre>
-</div>
-</div>
-</div>
-<div class="sect4">
-<h5 id="_zsh_syntax_highlighting">zsh-syntax-highlighting</h5>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-console" data-lang="console">git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>List of Plugins:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>git
-brew
-docker
-history
-macos
-zsh-autosuggestions
-zsh-syntax-highlighting</pre>
-</div>
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_styling_theme">Styling / Theme</h4>
-<div class="paragraph">
-<p>Clone theme:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-console" data-lang="console">git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Change zsh theme in <code>.zshrc</code> by adding/replacing: <code>ZSH_THEME="powerlevel10k/powerlevel10k"</code></p>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_additional_config">Additional config</h3>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-sh" data-lang="sh"># 1password ssh agent
-export SSH_AUTH_SOCK=~/.1password/agent.sock
-
-# jenv
-export PATH="$HOME/.jenv/bin:$PATH"
-eval "$(jenv init -)"
-
-# nvm
-export NVM_DIR=~/.nvm
-source $(brew --prefix nvm)/nvm.sh
-
-# gem
-export GEM_HOME=$HOME/.gem
-export PATH=$GEM_HOME/bin:$PATH
-
-export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
-
-export LANG=en_US.UTF-8
-export LANGUAGE=en_US.UTF-8
-export LC_ALL=en_US.UTF-8
-
-export PATH="/usr/local/opt/libpq/bin:$PATH"
-
-# pnpm
-export PNPM_HOME="/Users/scas/Library/pnpm"
-export PATH="$PNPM_HOME:$PATH"</code></pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_mac_settings_3">Mac Settings</h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="_finder_3">Finder</h3>
-<div class="ulist">
-<ul>
-<li>
-<p>Default folder</p>
-</li>
-<li>
-<p>Airdrop</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_docks_3">Docks</h3>
-<div class="ulist">
-<ul>
-<li>
-<p>Delay</p>
-</li>
-<li>
-<p>Animation</p>
-</li>
-<li>
-<p>Spacer</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_keyboard_3">Keyboard</h3>
-<div class="ulist">
-<ul>
-<li>
-<p>disable spelling correction</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_siri_3">Siri</h3>
-<div class="ulist">
-<ul>
-<li>
-<p>Voice Feedback</p>
-</li>
-<li>
-<p>Type to siri</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_desktop_3">Desktop</h3>
-<div class="ulist">
-<ul>
-<li>
-<p>Hot corners</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_aws_3">AWS</h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="_enabling_autocompletion_for_aws_cli_3">Enabling autocompletion for AWS CLI</h3>
-<div class="paragraph">
-<p>As I am often using autocompletion, here is how to enable it for the AWS CLI:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-sh" data-lang="sh">autoload -Uz compinit &amp;&amp; compinit
-autoload bashcompinit &amp;&amp; bashcompinit
-complete -C aws_completer aws</code></pre>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_switching_between_aws_profiles_3">Switching between AWS profiles</h3>
-<div class="paragraph">
-<p>If you are using multiple AWS profiles for different AWS accounts, you can switch between them by setting the <code>AWS_PROFILE</code> and temporary credentials environment variable.
-Therefor, you can use the following script:</p>
-</div>
-<details>
-<summary class="title">awsp script</summary>
-<div class="content">
-<div class="paragraph">
-<p>#!/bin/bash</p>
-</div>
-<div class="paragraph">
-<p>if [ -z "$1" ]; then  echo "Usage: awsp profilename"; return; fi
-   exists="$(aws configure get aws_access_key_id --profile "$1")"
-   role_arn="$(aws configure get role_arn --profile "$1")"
-   if [[ -n $exists || -n $role_arn ]]; then
-       if [[ -n $role_arn ]]; then
-           source_profile="$(aws configure get source_profile --profile "$1")"
-           if [[ -n $source_profile ]]; then
-              profile=$source_profile
-           else
-              profile=$1
-           fi
-           mfa_serial="$(aws configure get mfa_serial --profile "$profile")"
-           
-           unset AWS_REGION
-           region="$(aws configure get region --profile "$1")"
-           if [[ -z "$region" ]]; then
-                region="$(aws configure get region --profile "$profile")"
-           fi</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>echo "Assuming role $role_arn using profile $profile"
-if [[ -n $mfa_serial ]]; then
-     if command -v op &gt; /dev/null 2&gt;&amp;1; then
-         echo "Retrieving otp via 1password"
-         mfa_token=$(op item get &lt;AWS User Item&gt; --otp)  
-     else
-         echo "Please enter your MFA token for $mfa_serial:"
-         read mfa_token
-     fi
-    JSON="$(aws sts assume-role --profile="$profile" --role-arn "$role_arn" --role-session-name session-"$profile" --serial-number "$mfa_serial" --token-code "$mfa_token")"
-else
-    JSON="$(aws sts assume-role --profile="$profile" --role-arn "$role_arn" --role-session-name session-"$profile")"
-fi</pre>
-</div>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>       aws_access_key_id="$(echo "$JSON" | jq -r '.Credentials.AccessKeyId')"
-       aws_secret_access_key="$(echo "$JSON" | jq -r '.Credentials.SecretAccessKey')"
-       aws_session_token="$(echo "$JSON" | jq -r '.Credentials.SessionToken')"
-   else
-       aws_access_key_id="$(aws configure get aws_access_key_id --profile "$1")"
-       aws_secret_access_key="$(aws configure get aws_secret_access_key --profile "$1")"
-       aws_session_token=""
-   fi
-   export AWS_REGION=$region
-   export AWS_DEFAULT_PROFILE=$1
-export AWS_PROFILE=$1
-   export AWS_ACCESS_KEY_ID=$aws_access_key_id
-   export AWS_SECRET_ACCESS_KEY=$aws_secret_access_key
-   [[ -z "$aws_session_token" ]] &amp;&amp; unset AWS_SESSION_TOKEN || export AWS_SESSION_TOKEN=$aws_session_token</pre>
-</div>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>    echo "Switched to AWS Profile: $1";
-    aws configure list
-fi</pre>
-</div>
-</div>
-</div>
-</details>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_gitlab_3">Gitlab</h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="_creating_merge_requests_the_cool_way_3">Creating merge requests (the cool way)</h3>
-<div class="paragraph">
-<p>The following script will extract the jira story out of the branch name and create a merge request with a title and description. The target branch is selected via <code>fzf</code> by listing all origin branches. After creating the merge request it will be opened in the browser for convenience.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Note</div>
-</td>
-<td class="content">
-You need to have <code>glab</code> and <code>fzf</code> installed.
-</td>
-</tr>
-</table>
-</div>
-<div class="exampleblock">
-<div class="title">Example 5. Create merge request</div>
-<div class="content">
-<div class="paragraph">
-<p>#!/bin/bash</p>
-</div>
-<div class="paragraph">
-<p>pwd=$(pwd)</p>
-</div>
-<div class="paragraph">
-<p>current_branch=$(cd "$pwd" &amp;&amp; git rev-parse --abbrev-ref HEAD)
-current_jira_story=$(echo "$current_branch" | grep -Eo 'CAIPI-[0-9]+')</p>
-</div>
-<div class="paragraph">
-<p>read -p "Please enter jira task [current: $current_jira_story]:" jira_story
-jira_story="${jira_story:-$current_jira_story}"</p>
-</div>
-<div class="paragraph">
-<p>current_mr_title=$(git log -1 --pretty=%B)
-read -p "Please enter title [current: $current_mr_title]:" mr_title
-mr_title="[$jira_story] - ${mr_title:-$current_mr_title}"</p>
-</div>
-<div class="paragraph">
-<p>target_branch=$((cd "$pwd" &amp;&amp; git branch -r) | fzf | xargs | sed 's/^origin\///')</p>
-</div>
-<div class="paragraph">
-<p>glab mr create --title "$mr_title" --description "[$jira_story]" --target-branch "$target_branch" --remove-source-branch --draft --web</p>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Save this script in a bin folder and make it executable or integrate it as a function in your <code>.zshrc</code> or <code>.bashrc</code>. In my case I have a <code>~/bin</code> folder in my path and stored the script in <code>glmr</code>:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/glmr.gif" alt="glmr">
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_creating_merge_request_develop_main_3">Creating merge request (develop &#8594; main)</h3>
-<div class="paragraph">
-<p>The following script will create a merge request from <code>develop</code> to <code>main</code> with a title and description:</p>
-</div>
-<div class="exampleblock">
-<div class="title">Example 6. Create merge request</div>
-<div class="content">
-<div class="paragraph">
-<p>#!/bin/bash</p>
-</div>
-<div class="paragraph">
-<p>glab mr create \
---title "Merge develop into main" \
---description "chore: merge develop into main" \
---source-branch "develop" \
---target-branch "main" \
---web</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_idea_3">Idea</h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="_starting_idea_from_command_line_3">Starting idea from command line</h3>
-<div class="paragraph">
-<p>Follow the instructions on <a href="https://www.jetbrains.com/help/idea/working-with-the-ide-features-from-command-line.html#toolbox" class="bare">https://www.jetbrains.com/help/idea/working-with-the-ide-features-from-command-line.html#toolbox</a> to configure the command line.</p>
-</div>
-<div class="paragraph">
-<p>If you want to open a specific project from the command line in a cool way, you can use the following command:</p>
-</div>
-<div class="exampleblock">
-<div class="content">
-<div class="paragraph">
-<p>#!/bin/bash</p>
-</div>
-<div class="paragraph">
-<p>find ~/Workspace -maxdepth 3 -type d -name .idea | sed 's|/.idea$||' | fzf | xargs idea</p>
-</div>
-</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Note</div>
-</td>
-<td class="content">
-Fuzzy finder is required and you have to replace the workspace directory (~/Workspace) with your root directory.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>WHen you use an alias or create a script in a bin folder it will look like this:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/oidea.gif" alt="oidea">
-</div>
-</div>
-</div>
-</div>
-</div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2024-05-01 09:51:44 UTC
+Last updated 2024-05-01 10:52:44 UTC
 </div>
 </div>
 </body>
