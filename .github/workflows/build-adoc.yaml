@@ -3,22 +3,20 @@ name: build adoc
 on:
   push:
     branches:
-      - master
+      - main
 jobs:
   adoc_build:
     runs-on: ubuntu-latest
     name: Build asciidoctor
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
       - name: Get build container
-        id: adocbuild
         uses: tonynv/asciidoctor-action@master
         with:
-          program: "asciidoctor -D docs --backend=html5 -o index.html README.adoc && echo 'dev.castells.de' > docs/CNAME"
+          program: "asciidoctor -D . --backend=html5 -o index.html README.adoc && echo 'dev.castells.de' > CNAME"
       - name: Deploy docs to ghpages
         uses: peaceiris/actions-gh-pages@v4
         with:
-          deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
-          publish_branch: gh-pages
+          deploy_key: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./public
