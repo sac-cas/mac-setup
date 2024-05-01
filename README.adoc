@@ -1,4 +1,6 @@
 = Mac Setup
+:imagesdir: images
+:data-uri:
 :toc:
 :toc-placement!:
 

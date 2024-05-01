@@ -15,4 +15,4 @@ NOTE: Fuzzy finder is required and you have to replace the workspace directory (
 
 WHen you use an alias or create a script in a bin folder it will look like this:
 
-image::images/oidea.gif[]
+image::oidea.gif[]

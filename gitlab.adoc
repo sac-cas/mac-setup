@@ -14,7 +14,7 @@ include::bin/glmr[]
 
 Save this script in a bin folder and make it executable or integrate it as a function in your `.zshrc` or `.bashrc`. In my case I have a `~/bin` folder in my path and stored the script in `glmr`:
 
-image::images/glmr.gif[]
+image::glmr.gif[]
 
 === Creating merge request (develop -> main)
 
