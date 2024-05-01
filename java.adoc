@@ -33,36 +33,3 @@ Add new version:
 
 [source,console]
 $ jenv add <jdk_path>
-
-== Mac Settings
-
-=== Finder
-* Default folder 
-* Airdrop
-
-=== Docks
-* Delay
-* Animation
-* Spacer
-
-=== Keyboard
-* disable spelling correction
-
-=== Siri
-* Voice Feedback 
-* Type to siri
-
-=== Desktop
-* Hot corners
-
-== Useful MacOS apps
-
-* Rocket typist
-* Gestimer
-* Menuwhere
-
-
-include::aws.adoc[]
-include::gitlab.adoc[]
-include::idea.adoc[]
-
