@@ -81,7 +81,6 @@ $ jenv add <jdk_path>
 * Gestimer
 * Menuwhere
 
-
 include::aws.adoc[]
 include::gitlab.adoc[]
 include::idea.adoc[]
