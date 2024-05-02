@@ -13,6 +13,6 @@ include::bin/oidea[]
 
 NOTE: Fuzzy finder is required and you have to replace the workspace directory (~/Workspace) with your root directory. 
 
-WHen you use an alias or create a script in a bin folder it will look like this:
+When you use an alias or create a script in a bin folder it will look like this:
 
 image::oidea.gif[]

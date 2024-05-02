@@ -17,7 +17,9 @@ If you are using multiple AWS profiles for different AWS accounts, you can switc
 Therefor, you can use the following script:
 
 .awsp script
-[%collapsible,source,shell]
-====
+[source,shell]
+----
 include::bin/awsp[]
-====
+----
+
+NOTE: 1password is used to retrieve the MFA token via the `op` command, so you have to replace the `<AWS User Item>` with the name of your AWS user item in 1password. If you don't have `op` installed, a prompt will ask you for the MFA token. 
